@@ -4,7 +4,6 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 
-
 //new
 const corsOptions = {
   origin: "*",
@@ -19,7 +18,7 @@ require("./config/mongoose.config");
 app.use(cookieParser());
 
 // changed
-app.use(cors({ credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 // app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -29,6 +28,4 @@ require("./routes/messages.routes")(app);
 const UserRoutes = require("./routes/user.routes");
 UserRoutes(app);
 
-app.listen(process.env.PORT, () =>
-  console.log("express is running on", process.env.PORT)
-);
+app.listen(8000, () => console.log("express is running on", 8000));

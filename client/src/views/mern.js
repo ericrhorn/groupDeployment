@@ -17,13 +17,12 @@ const Mern = (props) => {
       .post("http://localhost:8000/api/message", newMernMessage)
       .then((res) => {
         console.log(res);
-        
+
         setMessageList([...messageList, res.data]);
 
         setNewMernMessage({
           addMessage: "",
         });
-
       })
       .catch((err) => {
         setErr(err.response.data.errors);
@@ -35,10 +34,7 @@ const Mern = (props) => {
         <h1>Mern Chatroom</h1>
         <h1>Hello (logged in user)</h1>
         <div>
-          <MessageDisplay 
-          display={messageList} 
-          setDisplay={setMessageList} 
-          />
+          <MessageDisplay display={messageList} setDisplay={setMessageList} />
         </div>
         <div>
           <MessageForm
